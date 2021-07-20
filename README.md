@@ -19,7 +19,7 @@ contract('SimpleStorage', async (accounts) => {
         let newValue = 2;
         let instance = await SimpleStorage.deployed()
     
-        instance.set(newValue, {from: accounts[0]})
+        await instance.set(newValue, {from: accounts[0]})
         let returnedValue = await instance.storedData.call()
     
         assert.equal(newValue, returnedValue, "The returned value should equal the new value.")
